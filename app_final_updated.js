@@ -1749,19 +1749,32 @@ if (this.moneyLost === 0) {
                 </ul>
             </div>
 
-            <div class="learning-summary" style="background: #d4edda; padding: 20px; border-radius: 8px; border: 1px solid #c3e6cb; margin: 20px 0;">
-                <h3 style="color: #155724;">What You Learned:</h3>
-                <p style="color: #155724; margin: 0;">
-                    You successfully identified and avoided ${this.darkPatternsAvoided} dark patterns in the ${character.journey.toLowerCase()}. 
-                    This demonstrates the importance of reading terms carefully, avoiding high-interest products, and making informed financial decisions!
-                </p>
-                ${this.moneyLost > 0 ? `
-                    <p style="color: #721c24; margin: 15px 0 0 0; padding: 15px; background: #fff3cd; border-radius: 6px;">
-                        <strong>Remember:</strong> The choices that seemed attractive initially cost ₹${this.moneyLost.toLocaleString('en-IN')} in the long run. 
-                        Always read the fine print and choose basic, transparent financial products over complex, high-return promises.
-                    </p>
-                ` : ''}
-            </div>
+${this.darkPatternsAvoided === 0 || this.moneyLost > 0 ? `
+<div class="warning-summary" style="background: #f8d7da; padding: 20px; border-radius: 8px; border: 2px solid #dc3545; margin: 20px 0;">
+    <h3 style="color: #721c24; display: flex; align-items: center; gap: 8px;">
+        ⚠️ You Fell for the Dark Patterns!
+    </h3>
+    <p style="color: #721c24; margin: 12px 0 0 0; line-height: 1.5;">
+        ${this.darkPatternsAvoided === 0 ? 
+            `The financial app successfully manipulated your decisions using deceptive design patterns. You didn't catch any of the traps they set - this is exactly how millions lose money every day!` : 
+            `Despite spotting some patterns, you still lost money to their manipulative tactics.`}
+    </p>
+    <p style="color: #721c24; margin: 12px 0 0 0; font-weight: 600;">
+        🎯 Stay Alert: These apps profit when you don't read the fine print, rush through decisions, or choose "premium" options that benefit them more than you.
+    </p>
+    <p style="color: #721c24; margin: 8px 0 0 0; font-size: 14px;">
+        Real lesson: Always slow down, read everything, question why something is "recommended," and choose the simplest, most transparent option available.
+    </p>
+</div>
+` : `
+<div class="learning-summary" style="background: #d4edda; padding: 20px; border-radius: 8px; border: 1px solid #c3e6cb; margin: 20px 0;">
+    <h3 style="color: #155724;">What You Learned:</h3>
+    <p style="color: #155724; margin: 0;">
+        You successfully identified and avoided ${this.darkPatternsAvoided} dark patterns in the ${character.journey.toLowerCase()}. 
+        This demonstrates the importance of reading terms carefully, avoiding high-interest products, and making informed financial decisions!
+    </p>
+</div>
+`}
 
             <div style="text-align: center; margin-top: 30px;">
                 <p style="color: var(--color-text-secondary); font-size: 14px; margin-bottom: 15px;">
