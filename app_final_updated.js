@@ -1742,18 +1742,22 @@ if (this.moneyLost === 0) {
 
             ${moneyLostMessage}
 
-            <div class="choices-summary">
-                <h3>Your Smart Financial Choices:</h3>
-                <ul style="text-align: left; margin-top: 16px;">
-                    ${this.gameState.choices.map(choice => `<li style="margin: 8px 0;">✓ ${choice}</li>`).join('')}
-                </ul>
-            </div>
+${this.darkPatternsAvoided > 0 ? `
+<div class="choices-summary">
+    <h3>Your Choices on the interface:</h3>
+    <ul style="text-align: left; margin-top: 16px;">
+        ${this.gameState.choices.map(choice => `<li style="margin: 8px 0;">✓ ${choice}</li>`).join('')}
+    </ul>
+</div>
+` : ''}
 
             ${this.darkPatternsAvoided === 0 || this.moneyLost > 0 ? `
 <div class="warning-summary" style="background: #f8d7da; padding: 20px; border-radius: 8px; border: 2px solid #dc3545; margin: 20px 0;">
-    <h3 style="color: #721c24; display: flex; align-items: center; gap: 8px;">
-        ⚠️ You Fell for the Dark Patterns!
-    </h3>
+<div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+  <p style="margin: 0; font-size: 18px; color: #721c24; font-weight: bold;">
+    ⚠️ You fell for dark patterns
+  </p>
+</div>
     <p style="color: #721c24; margin: 12px 0 0 0; line-height: 1.5;">
         ${this.darkPatternsAvoided === 0 ? 
             `The financial app successfully manipulated your decisions using deceptive design patterns. You didn't catch any of the traps they set - this is exactly how millions lose money every day!` : 
@@ -1775,6 +1779,16 @@ if (this.moneyLost === 0) {
     </p>
 </div>
 `}
+<div style="margin-top: 30px;">
+    <p style="color: var(--color-text-secondary); font-size: 14px; margin-bottom: 15px;">
+        <a href="https://www.microsave.net/2025/07/25/building-trust-through-design-eliminating-dark-patterns-in-digital-financial-services/" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           style="color: var(--color-primary); text-decoration: underline; cursor: pointer;">
+            Click here to learn more about dark patterns in digital financial services
+        </a>
+    </p>
+</div>
         `;
     }
 
