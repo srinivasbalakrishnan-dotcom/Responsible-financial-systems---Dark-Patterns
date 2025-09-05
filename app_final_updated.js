@@ -1707,8 +1707,8 @@ if (this.moneyLost === 0) {
             <div class="money-lost-section" style="background: #f8d7da; padding: 20px; border-radius: 8px; border: 1px solid #f5c6cb; margin: 20px 0;">
                 <h3 style="color: #721c24; margin-bottom: 15px;">💸 Money Lost: ₹${this.moneyLost.toLocaleString('en-IN')}</h3>
                 <div style="color: #721c24; font-size: 14px;">
-                    ${this.gameState.accountType === 'elite' ? `<p>Elite Account fees & penalties: ₹6,000</p>` : ''}
-                    ${this.gameState.loanAmount > 0 ? `<p>Predatory Loan Impact: ₹${Math.floor(this.gameState.loanAmount * 0.12).toLocaleString('en-IN')}</p>` : ''}
+                    ${this.gameState.accountType === 'elite' ? `<p>Elite account fees: ₹6,000</p>` : ''}
+                    ${this.gameState.loanAmount > 0 ? `<p>Predatory Loan Impact (12% more than the market rate): ₹${Math.floor(this.gameState.loanAmount * 0.12).toLocaleString('en-IN')}</p>` : ''}
                 </div>
             </div>
         `;
@@ -1749,7 +1749,7 @@ if (this.moneyLost === 0) {
                 </ul>
             </div>
 
-${this.darkPatternsAvoided === 0 || this.moneyLost > 0 ? `
+            ${this.darkPatternsAvoided === 0 || this.moneyLost > 0 ? `
 <div class="warning-summary" style="background: #f8d7da; padding: 20px; border-radius: 8px; border: 2px solid #dc3545; margin: 20px 0;">
     <h3 style="color: #721c24; display: flex; align-items: center; gap: 8px;">
         ⚠️ You Fell for the Dark Patterns!
@@ -1775,12 +1775,6 @@ ${this.darkPatternsAvoided === 0 || this.moneyLost > 0 ? `
     </p>
 </div>
 `}
-
-            <div style="text-align: center; margin-top: 30px;">
-                <p style="color: var(--color-text-secondary); font-size: 14px; margin-bottom: 15px;">
-                    Share your experience and help others avoid these dark patterns!
-                </p>
-            </div>
         `;
     }
 
