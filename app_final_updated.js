@@ -683,7 +683,7 @@ document.getElementById('basicAccountLink').addEventListener('click', (e) => {
 
                             <!-- MODIFIED: Skip Deposit as hyperlinked clickable element below Deposit Now -->
                             <div style="text-align: center;">
-                                <a href="#" id="skipDepositLink" style="color: var(--color-text-secondary); text-decoration: underline; cursor: pointer; font-size: 14px;">Skip Deposit</a>
+                                <a href="#" id="skipDepositLink" style="color: var(--color-text-secondary); text-decoration: underline; cursor: pointer; font-size: 8px;">Skip Deposit</a>
                             </div>
                         </div>
                     </div>
